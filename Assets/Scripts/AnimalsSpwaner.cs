@@ -20,9 +20,11 @@ public class AnimalsSpwaner : MonoBehaviour
         {
             SpawnAnimal(snakePrefab);
             yield return new WaitForSeconds(spawnInterval);
-
+            ScoreUIManager.Instance.SnakesCounter();
             SpawnAnimal(frogPrefab);
             yield return new WaitForSeconds(spawnInterval);
+            ScoreUIManager.Instance.FrogsCounter();
+
         }
     }
 

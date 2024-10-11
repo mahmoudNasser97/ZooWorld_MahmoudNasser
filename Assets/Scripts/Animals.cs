@@ -90,7 +90,7 @@ public abstract class Animals : MonoBehaviour
     {
         float rotationSpeed = 360f;
         Quaternion targetRotation = Quaternion.LookRotation(targetPosition - transform.position);
-   
+
         while (Quaternion.Angle(transform.rotation, targetRotation) > 0.1f)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
@@ -115,8 +115,8 @@ public abstract class Animals : MonoBehaviour
     public virtual void Die()
     {
         isDead = true;
-        navMeshAgent.isStopped = true;
         gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter(Collision collision)

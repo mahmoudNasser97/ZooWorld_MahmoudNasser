@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 8776566539799821811}
   - component: {fileID: 8776566539799821804}
   - component: {fileID: 8776566539799821806}
-  - component: {fileID: 8776566539799821807}
   - component: {fileID: 280990887494804287}
   - component: {fileID: 8235338125481061099}
+  - component: {fileID: 5551968729934696350}
   m_Layer: 0
   m_Name: Snake
-  m_TagString: Untagged
+  m_TagString: Snake
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,64 +102,13 @@ NavMeshAgent:
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 0
+  m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8776566539799821807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8776566539799821800}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3959548855991043934777f2e28673f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypointNetwork: {fileID: 0}
-  currentIndex: 0
-  hasPath: 0
-  pathPending: 0
-  pathStale: 0
-  pathStatus: 2
-  jumpCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.49596038
-      value: 1.006914
-      inSlope: 0.00077523786
-      outSlope: 0.00077523786
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.41653025
-    - serializedVersion: 3
-      time: 0.9958191
-      value: 0.01651001
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &280990887494804287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b50457763524fda418ff1fe863c570a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tastyLabelPrefab: {fileID: 3768618114539701160, guid: c75bac72872146b41aaccddab0f9a747, type: 3}
+  tastyLabelPrefab: {fileID: 6874149814878039224, guid: 246d42c270f87474e9f0b1f8d4c68334, type: 3}
   labelPosition: {fileID: 8341258229890852821, guid: c75bac72872146b41aaccddab0f9a747, type: 3}
 --- !u!65 &8235338125481061099
 BoxCollider:
@@ -185,8 +134,24 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.50659037, y: 1, z: 1.3172377}
-  m_Center: {x: 0, y: 0, z: -0.023016691}
+  m_Size: {x: 1.008315, y: 1.067339, z: 1.3370188}
+  m_Center: {x: 0.004080375, y: 0.040000003, z: 0.018515985}
+--- !u!54 &5551968729934696350
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8776566539799821800}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1001 &8776566540338396186
 PrefabInstance:
   m_ObjectHideFlags: 0

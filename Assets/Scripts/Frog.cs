@@ -53,10 +53,6 @@ public class Frog : Animals
         {
             Vector3 direction = (transform.position - otherAnimal.transform.position).normalized;
             rb.AddForce(direction * 5f, ForceMode.Impulse);
-        }
-        else if (otherAnimal is Snake)
-        {
-            Die();
-        }
+        }        
     }
 }

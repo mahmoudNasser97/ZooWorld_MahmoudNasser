@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,7 +11,7 @@ public class Snake : Animals
     private bool isRotating = false;
     private Vector3 lastPosition;
     private float stuckTimeThreshold = 2f;
-    private float lastMoveTime = 0f; 
+    private float lastMoveTime = 0f;
 
     protected override void Start()
     {
@@ -22,37 +23,43 @@ public class Snake : Animals
         lastPosition = transform.position;
         InvokeRepeating(nameof(CheckIfStuck), 0, 0.5f);
     }
-
     protected override void HandleCollision(Animals otherAnimal)
     {
         if (otherAnimal is Frog)
         {
             Eat(otherAnimal);
+            ScoreUIManager.Instance.IncrementPreyCount();
         }
         else if (otherAnimal is Snake)
         {
-            if (Random.value > 0.5f)
-            {
-                Eat(otherAnimal);
-            }
-            else
-            {
-                Die();
-            }
+            Eat(otherAnimal);
+            ScoreUIManager.Instance.IncrementPredatorCount();
         }
     }
 
     private void Eat(Animals prey)
     {
-        prey.Die();
-        ShowTastyLabel();
+        if (prey is Frog)
+        {
+            prey.Die();
+            ShowTastyLabel();
+            ScoreUIManager.Instance.DeadFrogsCounter();
+        }
+        else if (prey is Snake)
+        {
+            prey.Die();
+            ShowTastyLabel();
+            ScoreUIManager.Instance.DeadSnakesCounter();
+        }
+
     }
 
     private void ShowTastyLabel()
     {
         GameObject label = Instantiate(tastyLabelPrefab, labelPosition.position, Quaternion.identity);
-        label.transform.SetParent(labelPosition);
-        Destroy(label, 2f); 
+        label.transform.SetParent(FindObjectOfType<Canvas>().transform);
+        label.transform.position = new Vector3(900f, 500f, 500f);
+        Destroy(label, 2f);
     }
 
     private void OnCollisionEnter(Collision collision)
